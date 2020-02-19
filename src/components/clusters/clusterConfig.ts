@@ -308,7 +308,7 @@ export class ClusterConfigCtrl {
 
   checkApiVersion(clusterId) {
     return this.backendSrv.request({
-      url: 'api/datasources/proxy/' + clusterId + '/apis/extensions/v1',
+      url: 'api/datasources/proxy/' + clusterId + '/apis/apps/v1',
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -368,7 +368,7 @@ export class ClusterConfigCtrl {
     }).then(() => {
       return this.backendSrv.request({
         url: 'api/datasources/proxy/' + clusterId +
-          '/apis/extensions/v1/namespaces/kube-system/replicasets?labelSelector=grafanak8sapp%3Dtrue',
+          '/apis/apps/v1/namespaces/kube-system/replicasets?labelSelector=grafanak8sapp%3Dtrue',
         method: 'DELETE'
       });
     });

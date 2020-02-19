@@ -308,7 +308,7 @@ export class ClusterConfigCtrl {
 
   checkApiVersion(clusterId) {
     return this.backendSrv.request({
-      url: 'api/datasources/proxy/' + clusterId + '/apis/extensions/v1',
+      url: 'api/datasources/proxy/' + clusterId + '/apis/apps/v1',
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -334,7 +334,7 @@ export class ClusterConfigCtrl {
 
   createDaemonSet(clusterId, daemonSet) {
     return this.backendSrv.request({
-      url: 'api/datasources/proxy/' + clusterId + '/apis/extensions/v1/namespaces/kube-system/daemonsets',
+      url: 'api/datasources/proxy/' + clusterId + '/apis/apps/v1/namespaces/kube-system/daemonsets',
       method: 'POST',
       data: daemonSet,
       headers: {
@@ -345,7 +345,7 @@ export class ClusterConfigCtrl {
 
   deleteDaemonSet(clusterId) {
     return this.backendSrv.request({
-      url: 'api/datasources/proxy/' + clusterId + '/apis/extensions/v1/namespaces/kube-system/daemonsets/node-exporter',
+      url: 'api/datasources/proxy/' + clusterId + '/apis/apps/v1/namespaces/kube-system/daemonsets/node-exporter',
       method: 'DELETE',
     });
   }
@@ -368,7 +368,7 @@ export class ClusterConfigCtrl {
     }).then(() => {
       return this.backendSrv.request({
         url: 'api/datasources/proxy/' + clusterId +
-          '/apis/extensions/v1/namespaces/kube-system/replicasets?labelSelector=grafanak8sapp%3Dtrue',
+          '/apis/apps/v1/namespaces/kube-system/replicasets?labelSelector=grafanak8sapp%3Dtrue',
         method: 'DELETE'
       });
     });

@@ -295,7 +295,7 @@ System.register(['lodash', 'app/core/app_events', 'angular'], function(exports_1
                 };
                 ClusterConfigCtrl.prototype.checkApiVersion = function (clusterId) {
                     return this.backendSrv.request({
-                        url: 'api/datasources/proxy/' + clusterId + '/apis/extensions/v1',
+                        url: 'api/datasources/proxy/' + clusterId + '/apis/apps/v1',
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json'
@@ -319,7 +319,7 @@ System.register(['lodash', 'app/core/app_events', 'angular'], function(exports_1
                 };
                 ClusterConfigCtrl.prototype.createDaemonSet = function (clusterId, daemonSet) {
                     return this.backendSrv.request({
-                        url: 'api/datasources/proxy/' + clusterId + '/apis/extensions/v1/namespaces/kube-system/daemonsets',
+                        url: 'api/datasources/proxy/' + clusterId + '/apis/apps/v1/namespaces/kube-system/daemonsets',
                         method: 'POST',
                         data: daemonSet,
                         headers: {
@@ -329,7 +329,7 @@ System.register(['lodash', 'app/core/app_events', 'angular'], function(exports_1
                 };
                 ClusterConfigCtrl.prototype.deleteDaemonSet = function (clusterId) {
                     return this.backendSrv.request({
-                        url: 'api/datasources/proxy/' + clusterId + '/apis/extensions/v1/namespaces/kube-system/daemonsets/node-exporter',
+                        url: 'api/datasources/proxy/' + clusterId + '/apis/apps/v1/namespaces/kube-system/daemonsets/node-exporter',
                         method: 'DELETE',
                     });
                 };
